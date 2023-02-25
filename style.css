@@ -1,0 +1,61 @@
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image: url("cover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    /* Do not extend the border */
+}
+
+#DataBox {
+    margin: 10% 26% 10% 26%;
+    display: flex;
+    /* flex: 1; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 8%;
+    border: 3px solid gray;
+    width: 48%;
+    height: 60vh;
+}
+
+.formTitle {
+    text-align: center;
+    background-color: gainsboro;
+    width: 32vw;
+    font-size: 18px;
+    margin: 0% auto 10% auto;
+}
+
+.inputData {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    height: 30px;
+    outline: none;
+}
+
+#validation{
+    color: black;
+    border: 2px solid rgba(255, 99, 71, 0.61);
+    display: flex;
+    flex-direction: column;
+    height: 24px;
+    padding: 2%;
+}
+
+#submition {
+    color: black;
+    border: 2px solid rgba(255, 99, 71, 0.61);
+    display: flex;
+    flex-direction: column;
+    margin: 0% 37% 5% auto;
+    height: 15px;
+    padding: 2% 7%;
+}
