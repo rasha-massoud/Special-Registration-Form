@@ -1,5 +1,5 @@
 function validateForm() {
-    window.location.replace("https://yourdomain.com/success");
+    location.href = 'waiting.html';
     // Get the form values
     var fname = document.forms["registrationForm"]["fname"].value;
     var lname = document.forms["registrationForm"]["lname"].value;
@@ -36,7 +36,6 @@ function validateForm() {
         alert("The password do not meet the conditions of characters between 8 to 15 containing at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.");
     }
 
-
     // If all validation checks pass, submit the form
     return true;
 }
@@ -50,3 +49,4 @@ function CheckPassword(password) {
         return false;
     }
 }
+
