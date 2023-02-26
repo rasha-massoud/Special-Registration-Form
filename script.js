@@ -123,8 +123,18 @@ function mergeTwoArrays(leftArr, rightArr) {
     return resultArray;
 }
 
-#fitImage{
-    margin: 0 auto auto auto;
-    width: 70 %;
-    height: auto;
+function palindromeTest(){
+    let count=0;
+    const word = document.forms["registrationForm"]["stringInput"].value;
+
+    for(var i=0; i< (word.length/2); i++){
+        if (word[i]== word[-1-i]){
+            count++;
+        }
+    }
+    if (count== Math.floor((word.length/2))){
+        alert("The word you entered is palindrome!");
+    }else{
+        alert("The word you entered is NOT palindrome.");
+    }
 }
