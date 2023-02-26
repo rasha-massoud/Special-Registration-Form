@@ -161,3 +161,48 @@ function palindromeTestRecursive(word, start, end){
     alert("The word you entered is NOT a palindrome!");
     return false;
 }
+
+function primeAge(){
+    const monthYear = document.forms["registrationForm"]["monthYearOfBirth"].value;
+    let year=monthYear.slice(0,4);
+    let month=monthYear.slice(5,7);
+
+    let age=0;
+    const date = new Date();
+    const currentYear = date.getFullYear();
+    const currentMonth=date.getMonth()+1;
+
+    if (currentYear<year || (currentYear==year  && currentMonth<month)){
+        alert("The date you entered is wrong!");
+    }
+    else{
+        if (currentMonth>=month){
+            age= currentYear- year;
+        }
+        else{
+            age= currentYear- year-1;
+        }
+        let primeStatus= checkPrime(age);
+        if(primeStatus){
+            alert ("Your age is a prime number!");
+        }else{
+            alert ("Your age is not a prime number!");
+        }
+    }
+}
+
+function checkPrime(age){
+    let countDiv=0;
+    if (age== 0 || age==1 || age==2){
+        return true;
+    }
+    for (var i=1; i<age+1; i++){
+        if (age%i==0){
+            countDiv++;
+        }
+    }
+    if (countDiv==2){
+        return true;
+    }
+    return false;
+}
