@@ -71,3 +71,13 @@ function CheckPassword(password) {
 function submitingData() {
     location.href = "secondStep.html";
 }
+
+function numbersMergeSortAlgorithm(){
+    const numbers=[];
+
+    console.log("HIIIIIIIII");
+    for(var i=0; i<10; i++){
+        numbers[i]=prompt("Enter a number!");
+    }
+}
+

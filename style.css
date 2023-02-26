@@ -59,3 +59,10 @@ body {
     height: 15px;
     padding: 2% 7%;
 }
+
+#onClick{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
