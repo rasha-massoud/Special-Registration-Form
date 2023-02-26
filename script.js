@@ -230,7 +230,8 @@ function representCourse() {
     const course_code = document.forms["registrationForm"]["courseCode"].value;
     const course_instructor = document.forms["registrationForm"]["courseInstructor"].value;
 
-    let crs = new Course(course_name, course_code, course_instructor);
-    console.log(course_name, course_code, course_instructor)
-    crs.introduceCourse();
+    if(course_name!= "" && course_code!= "" && course_instructor!= ""){
+        let crs = new Course(course_name, course_code, course_instructor);
+        crs.introduceCourse();
+    }
 }
