@@ -1,4 +1,4 @@
-let fname ;
+let fname;
 let lname;
 
 let email;
@@ -51,7 +51,7 @@ function validateForm() {
     jsontext.id = "jsontext";
     document.body.appendChild(jsontext);
     //convert JavaScript object to 
-    const myJSON= JSON.stringify(data);
+    const myJSON = JSON.stringify(data);
 
     location.href = 'waiting.html';
     // If all validation checks pass, submit the form
@@ -72,12 +72,12 @@ function submitingData() {
     location.href = "secondStep.html";
 }
 
-function numbersMergeSortAlgorithm(){
-    const numbers=[];
-
-    console.log("HIIIIIIIII");
-    for(var i=0; i<10; i++){
-        numbers[i]=prompt("Enter a number!");
-    }
+function numbersMergeSortAlgorithm() {
+    var index = 0;
+    do {
+        const number = parseInt(window.prompt("Enter a number!", ""), 10);
+        if (!(number)) {
+            index++;
+        }
+    } while (index<10);
 }
-
