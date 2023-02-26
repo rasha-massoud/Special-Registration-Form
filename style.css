@@ -78,5 +78,17 @@ body {
     justify-content: center;
     justify-items: center;
     /* padding:20% 100% 20% 100%; */
+}
 
+#courseRepresentation{
+    justify-content: center;
+    justify-items: center;
+    text-align: justify;
+}
+
+.rowDistribution{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-content: center;
 }

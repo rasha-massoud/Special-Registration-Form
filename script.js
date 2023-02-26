@@ -147,62 +147,90 @@ function palindromeTest() {
         return true;
     }
 
-    return palindromeTestRecursive(word, 0, len-1);
+    return palindromeTestRecursive(word, 0, len - 1);
 }
 
-function palindromeTestRecursive(word, start, end){
-    if (end== 0 || end == 1 || start==end){
+function palindromeTestRecursive(word, start, end) {
+    if (end == 0 || end == 1 || start == end) {
         alert("The word you entered is palindrome!");
         return true;
     }
-    if (word[start]== word[end]){
-        return palindromeTestRecursive(word, start+1, end-1);
+    if (word[start] == word[end]) {
+        return palindromeTestRecursive(word, start + 1, end - 1);
     }
     alert("The word you entered is NOT a palindrome!");
     return false;
 }
 
-function primeAge(){
+function primeAge() {
     const monthYear = document.forms["registrationForm"]["monthYearOfBirth"].value;
-    let year=monthYear.slice(0,4);
-    let month=monthYear.slice(5,7);
+    let year = monthYear.slice(0, 4);
+    let month = monthYear.slice(5, 7);
 
-    let age=0;
+    let age = 0;
     const date = new Date();
     const currentYear = date.getFullYear();
-    const currentMonth=date.getMonth()+1;
+    const currentMonth = date.getMonth() + 1;
 
-    if (currentYear<year || (currentYear==year  && currentMonth<month)){
+    if (currentYear < year || (currentYear == year && currentMonth < month)) {
         alert("The date you entered is wrong!");
     }
-    else{
-        if (currentMonth>=month){
-            age= currentYear- year;
+    else {
+        if (currentMonth >= month) {
+            age = currentYear - year;
         }
-        else{
-            age= currentYear- year-1;
+        else {
+            age = currentYear - year - 1;
         }
-        let primeStatus= checkPrime(age);
-        if(primeStatus){
-            alert ("Your age is a prime number!");
-        }else{
-            alert ("Your age is not a prime number!");
+        let primeStatus = checkPrime(age);
+        if (primeStatus) {
+            alert("Your age is a prime number!");
+        } else {
+            alert("Your age is not a prime number!");
         }
     }
 }
 
-function checkPrime(age){
-    let countDiv=0;
-    if (age== 0 || age==1 || age==2){
+function checkPrime(age) {
+    let countDiv = 0;
+    if (age == 0 || age == 1 || age == 2) {
         return true;
     }
-    for (var i=1; i<age+1; i++){
-        if (age%i==0){
+    for (var i = 1; i < age + 1; i++) {
+        if (age % i == 0) {
             countDiv++;
         }
     }
-    if (countDiv==2){
+    if (countDiv == 2) {
         return true;
     }
     return false;
+}
+
+class Course {
+
+    courseName;
+    courseCode;
+    courseInstructor;
+
+    constructor(courseName, courseCode, courseInstructor) {
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseInstructor = courseInstructor;
+    }
+
+    introduceCourse() {
+        document.getElementById("courseRepresentation").innerText = "The " + this.courseName + " course has the code " + this.courseCode + " and is taught by " + this.courseInstructor;
+    }
+
+}
+
+function representCourse() {
+    const course_name = document.forms["registrationForm"]["courseName"].value;
+    const course_code = document.forms["registrationForm"]["courseCode"].value;
+    const course_instructor = document.forms["registrationForm"]["courseInstructor"].value;
+
+    let crs = new Course(course_name, course_code, course_instructor);
+    console.log(course_name, course_code, course_instructor)
+    crs.introduceCourse();
 }
