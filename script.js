@@ -123,18 +123,41 @@ function mergeTwoArrays(leftArr, rightArr) {
     return resultArray;
 }
 
-function palindromeTest(){
-    let count=0;
-    const word = document.forms["registrationForm"]["stringInput"].value;
+// function palindromeTest(){
+//     let count=0;
+//     const word = document.forms["registrationForm"]["stringInput"].value;
 
-    for(var i=0; i< (word.length/2); i++){
-        if (word[i]== word[-1-i]){
-            count++;
-        }
-    }
-    if (count== Math.floor((word.length/2))){
+//     for(var i=0; i< (word.length/2); i++){
+//         if (word[i]== word[-1-i]){
+//             count++;
+//         }
+//     }
+//     if (count== Math.floor((word.length/2))){
+//         alert("The word you entered is palindrome!");
+//     }else{
+//         alert("The word you entered is NOT palindrome.");
+//     }
+// }
+
+function palindromeTest() {
+    const word = document.forms["registrationForm"]["stringInput"].value;
+    const len = word.length;
+    if (len == 0) {
         alert("The word you entered is palindrome!");
-    }else{
-        alert("The word you entered is NOT palindrome.");
+        return true;
     }
+
+    return palindromeTestRecursive(word, 0, len-1);
+}
+
+function palindromeTestRecursive(word, start, end){
+    if (end== 0 || end == 1 || start==end){
+        alert("The word you entered is palindrome!");
+        return true;
+    }
+    if (word[start]== word[end]){
+        return palindromeTestRecursive(word, start+1, end-1);
+    }
+    alert("The word you entered is NOT a palindrome!");
+    return false;
 }
