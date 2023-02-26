@@ -76,7 +76,7 @@ function numbersMergeSortAlgorithm() {
     const numbers = [];
     var number;
 
-    for (var i=0; i<10; i++){
+    for (var i = 0; i < 10; i++) {
         number = parseInt(window.prompt("Enter a number!", ""), 10);
         numbers[i] = number;
     }
@@ -88,37 +88,43 @@ function numbersMergeSortAlgorithm() {
 }
 
 function mergeSort(unsortedArray) {
-	if (unsortedArray.length <= 1) {
-		return unsortedArray;
-	}
-  
-	const midPoint = Math.floor(unsortedArray.length / 2);
-	const leftArr = unsortedArray.slice(0, midPoint);
-	const rightArr = unsortedArray.slice(midPoint);
+    if (unsortedArray.length <= 1) {
+        return unsortedArray;
+    }
 
-	return mergeTwoArrays(mergeSort(leftArr), mergeSort(rightArr));
+    const midPoint = Math.floor(unsortedArray.length / 2);
+    const leftArr = unsortedArray.slice(0, midPoint);
+    const rightArr = unsortedArray.slice(midPoint);
+
+    return mergeTwoArrays(mergeSort(leftArr), mergeSort(rightArr));
 }
 
 function mergeTwoArrays(leftArr, rightArr) {
-	let resultArray = [], leftIndex = 0, rightIndex = 0;
-  
-	while (leftIndex < leftArr.length && rightIndex < rightArr.length) {
-		if (leftArr[leftIndex] < rightArr[rightIndex]) {
-			resultArray.push(leftArr[leftIndex]);
-			leftIndex++;
-		} else {
-			resultArray.push(rightArr[rightIndex]);
-			rightIndex++;
-		}
-	}
-  
-	if (leftArr[leftIndex]) {	
-		var unaddedElements = leftArr.slice(leftIndex)
-		resultArray.push(...unaddedElements); 
-	} else {
-		var unaddedElements = rightArr.slice(rightIndex)
-		resultArray.push(...unaddedElements); 
-	}
-  
-	return resultArray;
+    let resultArray = [], leftIndex = 0, rightIndex = 0;
+
+    while (leftIndex < leftArr.length && rightIndex < rightArr.length) {
+        if (leftArr[leftIndex] < rightArr[rightIndex]) {
+            resultArray.push(leftArr[leftIndex]);
+            leftIndex++;
+        } else {
+            resultArray.push(rightArr[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    if (leftArr[leftIndex]) {
+        var unaddedElements = leftArr.slice(leftIndex)
+        resultArray.push(...unaddedElements);
+    } else {
+        var unaddedElements = rightArr.slice(rightIndex)
+        resultArray.push(...unaddedElements);
+    }
+
+    return resultArray;
+}
+
+#fitImage{
+    margin: 0 auto auto auto;
+    width: 70 %;
+    height: auto;
 }
