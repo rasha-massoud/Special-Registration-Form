@@ -240,33 +240,62 @@ function containsNumbers(str) {
     return /\d/.test(str);
 }
 
-function flipNumbers() {
-    const dataBeforeFlipping = document.forms["registrationForm"]["dataBeforeFlipping"].value;
-    if (containsNumbers(dataBeforeFlipping)) {
-        let dataAfterFlipping = flipNumbersFunction(dataBeforeFlipping);
-        // document.getElementById("numberFlippedDisplay").innerText = dataAfterFlipping.value;
-    } else {
-        // document.getElementById("numberFlippedDisplay").innerText = "The data you entered doesn't contain any number.";
-    }
-}
+// function flipNumbers() {
+//     const dataBeforeFlipping = document.forms["registrationForm"]["dataBeforeFlipping"].value;
+//     if (containsNumbers(dataBeforeFlipping)) {
+//         let dataAfterFlipping = flipNumbersFunction(dataBeforeFlipping);
+//         // document.getElementById("numberFlippedDisplay").innerText = dataAfterFlipping.value;
+//     } else {
+//         // document.getElementById("numberFlippedDisplay").innerText = "The data you entered doesn't contain any number.";
+//     }
+// }
 
-function flipNumbersFunction(dataBeforeFlipping) {
-    let indexNumbers = [];
-    let indexArray = 0;
-    let dataAfterFlipping = dataBeforeFlipping;
-    for (var i = 0; i < dataBeforeFlipping.length; i++) {
-        if (!isNaN(dataBeforeFlipping[i])) {
-            indexNumbers[indexArray] = i;
-            indexArray++;
+// function flipNumbersFunction(dataBeforeFlipping) {
+//     let indexNumbers = [];
+//     let indexArray = 0;
+//     let dataAfterFlipping = dataBeforeFlipping;
+//     for (var i = 0; i < dataBeforeFlipping.length; i++) {
+//         if (!isNaN(dataBeforeFlipping[i])) {
+//             indexNumbers[indexArray] = i;
+//             indexArray++;
+//         }
+//     }
+//     if (indexArray.length == 1) {
+//         return dataAfterFlipping;
+//     }
+//     for (var j = 0; j < indexArray.length; j++) {
+//         [dataAfterFlipping[indexArray[j]], dataAfterFlipping[indexArray[indexArray.length - j - 1]]] = [dataAfterFlipping[indexArray[indexArray.length - j - 1]], dataAfterFlipping[indexArray[j]]];
+//         console.log(dataAfterFlipping[indexArray[j]], dataAfterFlipping[indexArray[indexArray.length - j - 1]]);
+//     }
+//     return dataAfterFlipping;
+
+// }
+
+function flipNumbers() {
+    const str = document.forms["registrationForm"]["dataBeforeFlipping"].value;
+
+    let result = "";
+    let numStr = "";
+
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        if (!isNaN(parseInt(char))) { 
+            numStr += char;
+        } 
+            else {
+            result += numStr.split("").reverse().join(""); 
+            result += char; 
+            numStr = ""; 
         }
     }
-    if (indexArray.length == 1) {
-        return dataAfterFlipping;
-    }
-    for (var j = 0; j < indexArray.length; j++) {
-        [dataAfterFlipping[indexArray[j]], dataAfterFlipping[indexArray[indexArray.length - j - 1]]] = [dataAfterFlipping[indexArray[indexArray.length - j - 1]], dataAfterFlipping[indexArray[j]]];
-        console.log(dataAfterFlipping[indexArray[j]], dataAfterFlipping[indexArray[indexArray.length - j - 1]]);
-    }
-    return dataAfterFlipping;
 
+    if (numStr.length > 0) {
+        result += numStr.split("").reverse().join("");
+    }
+    console.log(result);
+    return result;
 }
+
+
+
+
