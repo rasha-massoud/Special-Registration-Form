@@ -240,37 +240,6 @@ function containsNumbers(str) {
     return /\d/.test(str);
 }
 
-// function flipNumbers() {
-//     const dataBeforeFlipping = document.forms["registrationForm"]["dataBeforeFlipping"].value;
-//     if (containsNumbers(dataBeforeFlipping)) {
-//         let dataAfterFlipping = flipNumbersFunction(dataBeforeFlipping);
-//         // document.getElementById("numberFlippedDisplay").innerText = dataAfterFlipping.value;
-//     } else {
-//         // document.getElementById("numberFlippedDisplay").innerText = "The data you entered doesn't contain any number.";
-//     }
-// }
-
-// function flipNumbersFunction(dataBeforeFlipping) {
-//     let indexNumbers = [];
-//     let indexArray = 0;
-//     let dataAfterFlipping = dataBeforeFlipping;
-//     for (var i = 0; i < dataBeforeFlipping.length; i++) {
-//         if (!isNaN(dataBeforeFlipping[i])) {
-//             indexNumbers[indexArray] = i;
-//             indexArray++;
-//         }
-//     }
-//     if (indexArray.length == 1) {
-//         return dataAfterFlipping;
-//     }
-//     for (var j = 0; j < indexArray.length; j++) {
-//         [dataAfterFlipping[indexArray[j]], dataAfterFlipping[indexArray[indexArray.length - j - 1]]] = [dataAfterFlipping[indexArray[indexArray.length - j - 1]], dataAfterFlipping[indexArray[j]]];
-//         console.log(dataAfterFlipping[indexArray[j]], dataAfterFlipping[indexArray[indexArray.length - j - 1]]);
-//     }
-//     return dataAfterFlipping;
-
-// }
-
 function flipNumbers() {
     const str = document.forms["registrationForm"]["dataBeforeFlipping"].value;
 
@@ -279,13 +248,13 @@ function flipNumbers() {
 
     for (let i = 0; i < str.length; i++) {
         const char = str[i];
-        if (!isNaN(parseInt(char))) { 
+        if (!isNaN(parseInt(char))) {
             numStr += char;
-        } 
-            else {
-            result += numStr.split("").reverse().join(""); 
-            result += char; 
-            numStr = ""; 
+        }
+        else {
+            result += numStr.split("").reverse().join("");
+            result += char;
+            numStr = "";
         }
     }
 
@@ -293,18 +262,24 @@ function flipNumbers() {
         result += numStr.split("").reverse().join("");
     }
     console.log(result);
+    document.getElementById("numberFlippedDisplay").innerHTML = result;
     return result;
 }
 
-function reverseAY(){
+function reverseAY() {
     let str = document.forms["registrationForm"]["stringBeforeReverseAY"].value;
-    let strReversed="";
-    for (let i=str.length-1; i>=0 ; i--){
-        strReversed= strReversed+""+str[i];
+    let strReversed = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        strReversed = strReversed + "" + str[i];
     }
-    strReversed= strReversed+""+"ay";
-    console.log(strReversed);   
-    document.getElementById("reverseAYDisplay").innerHTML=strReversed;
+    strReversed = strReversed + "" + "ay";
+    console.log(strReversed);
+    document.getElementById("reverseAYDisplay").innerHTML = strReversed;
+}
+
+function animate() {
+    document.getElementById("myButton").style.height=200%;
+    document.getElementById("myButton").style.width="80%";
 }
 
 

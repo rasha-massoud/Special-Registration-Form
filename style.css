@@ -104,3 +104,26 @@ body {
     justify-items: center;
     text-align: justify;
 }
+
+#myButton {
+    font-size: 16px;
+    padding: 10px 40px;
+    border: none;
+    background-color: #ff8b5d;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  #myButton:hover {
+    animation: shake 0.5s;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }
