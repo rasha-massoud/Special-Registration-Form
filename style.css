@@ -164,3 +164,9 @@ body {
     background-repeat: repeat-y;
     background-size: cover;
 }
+
+#blockParagraph{
+    width:100vh;
+    height: 100%;
+
+}

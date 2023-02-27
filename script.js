@@ -308,18 +308,24 @@ function animate() {
 //     document.getElementById("ipValuesAddedDisplay").innerHTML = sum;
 // }
 
+function splitIntoArray(num) {
+    return String(num).split('').map(Number);
+}
+
 function calculateIPDigits() {
     const ipAddress = window.location.hostname;
+
     const parts = ipAddress.split(".");
     let sum = 0;
     for (let i = 0; i < parts.length; i++) {
-        const num = parseInt(parts[i]);
-        if (num % 2 === 0) {
-            sum += num;
+        const arr1 = splitIntoArray(parts[i]);
+        for (let j = 0; j < arr1.length; j++) {
+            if (arr1[j] % 2 === 0) {
+                sum += arr1[j];
+            }
         }
     }
     document.getElementById("ipValuesAddedDisplay").innerHTML = sum;
-
     console.log(sum);
 }
 
