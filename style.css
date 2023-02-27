@@ -145,7 +145,12 @@ body {
     }
 }
 
-#ipAddressDisplay,
+#ipAddressDisplay{
+    justify-content: center;
+    justify-items: center;
+    text-align: justify;
+}
+
 #ipValuesAddedDisplay {
     justify-content: center;
     justify-items: center;

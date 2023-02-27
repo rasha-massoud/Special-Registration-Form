@@ -295,17 +295,32 @@ function calculateIPDigits() {
     // document.getElementById("ipAddressDisplay").innerHTML = ipAddress;
 
     let sum = 0;
+    let i=0;
     const octets = ipAddress.split('.');
-    console.log(octets);
-    octets.forEach(octets => {
-        const num = parseInt(octets);
-        if (num % 2 === 0) {
-            sum += num;
+    while (ipAddress[i] ){
+        if (parseInt(ipAddress[i]) %2==0){
+            sum=sum+parseInt(ipAddress[i]);
         }
-        console.log(sum);
-    });
+        i++;
+    }
     document.getElementById("ipValuesAddedDisplay").innerHTML = sum;
 }
+
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showLocation);
+    } else {
+      document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showLocation(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    document.getElementById("location").innerHTML = "Your current location is: " + latitude + ", " + longitude;
+  }
+
+  getLocation();
 
 
 
