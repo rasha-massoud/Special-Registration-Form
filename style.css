@@ -164,11 +164,7 @@ body {
     background-repeat: repeat-y;
     background-size: cover;
     margin: 10% 26% 10% 26%;
-    display: flex;
-    /* flex: 1; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
     background-color: white;
     border-radius: 8%;
     border: 3px solid gray;
@@ -176,14 +172,10 @@ body {
     height: 60vh;
 }
 
-#tenthPage{
-    overflow-y: auto;
-}
 
 #blockParagraph{
     width:100vh;
     height: 100%;
     background-color: white;
     overflow-y: auto;
-    margin:10%;
 }
