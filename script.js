@@ -278,9 +278,35 @@ function reverseAY() {
 }
 
 function animate() {
-    document.getElementById("myButton").style.height=200%;
-    document.getElementById("myButton").style.width="80%";
+    document.getElementById("myButton").style.height = "200%";
+    document.getElementById("myButton").style.width = "80%";
 }
+
+function calculateIPDigits() {
+    let ipAddress = "";
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            ipAddress = data.ip;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    // document.getElementById("ipAddressDisplay").innerHTML = ipAddress;
+
+    let sum = 0;
+    const octets = ipAddress.split('.');
+    console.log(octets);
+    octets.forEach(octets => {
+        const num = parseInt(octets);
+        if (num % 2 === 0) {
+            sum += num;
+        }
+        console.log(sum);
+    });
+    document.getElementById("ipValuesAddedDisplay").innerHTML = sum;
+}
+
 
 
 
