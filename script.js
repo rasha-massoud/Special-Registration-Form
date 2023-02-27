@@ -343,16 +343,49 @@ function showLocation(position) {
     document.getElementById("location").innerHTML = "Your current location is: " + latitude + ", " + longitude;
 }
 
-window.addEventListener('scroll', function () {
-    const section = document.getElementById('scrollAllow');
-    const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+// window.addEventListener('scroll', function () {
+//     const section = document.getElementById('scrollAllow');
+//     const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
 
-    if (window.pageYOffset >= sectionPosition) {
-        alert('You have scrolled to the specific section!');
-    }
-});
+//     if (window.pageYOffset >= sectionPosition) {
+//         alert('You have scrolled to the specific section!');
+//     }
+// });
 
+// function scrollAlert() {
+//     var elem = document.getElementById("div2");
+//     var hT = elem.offsetTop,
+//         hH = getAbsoluteHeight(elem),
+//         wH = window.innerHeight,
+//         wS = window.pageYOffset;
+//     if (wS > (hT+hH-wH)){
+//         alert('you have scrolled to the Div2!');
+//     }
+// }
 
+// function getAbsoluteHeight(el) {
+//   // Get the DOM Node if you pass in a string
+//   el = (typeof el === 'string') ? document.querySelector(el) : el; 
+
+//   var styles = window.getComputedStyle(el);
+//   var margin = parseFloat(styles['marginTop']) +
+//            parseFloat(styles['marginBottom']);
+//   return Math.ceil(el.offsetHeight + margin);
+// }
+
+function scrollAlert() {
+    const secondDiv = document.getElementById("blockParagraph");
+
+    secondDiv.addEventListener("scroll", function() {
+        const scrollTop = secondDiv.scrollTop;
+        const divHeight = secondDiv.offsetHeight;
+        const windowHeight = window.innerHeight;
+      
+        if (scrollTop + windowHeight > divHeight) {
+          alert("You have scrolled to the second div!");
+        }
+      });
+}
 
 
 
