@@ -92,3 +92,9 @@ body {
     justify-content: space-around;
     justify-content: center;
 }
+
+#numberFlippedDisplay{
+    justify-content: center;
+    justify-items: center;
+    text-align: justify;
+}
