@@ -282,45 +282,70 @@ function animate() {
     document.getElementById("myButton").style.width = "80%";
 }
 
-function calculateIPDigits() {
-    let ipAddress = "";
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            ipAddress = data.ip;
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    // document.getElementById("ipAddressDisplay").innerHTML = ipAddress;
+// function calculateIPDigits() {
+//     let ipAddress = "";
+//     fetch('https://api.ipify.org?format=json')
+//         .then(response => response.json())
+//         .then(data => {
+//             ipAddress = data.ip;
+//         })
+//         .catch(error => {
+//             console.error(error);
+//         });
+//     // document.getElementById("ipAddressDisplay").innerHTML = ipAddress;
 
+//     let sum = 0;
+//     let i = 0;
+//     for (var j = 0; j < ipAddress.length; j++) {
+//         console.log(ipAddress[j])
+//     }
+//     // while (ipAddress[i] ){
+//     //     if (parseInt(ipAddress[i]) %2==0){
+//     //         sum=sum+parseInt(ipAddress[i]);
+//     //     }
+//     //     i++;
+//     // }
+//     document.getElementById("ipValuesAddedDisplay").innerHTML = sum;
+// }
+
+function calculateIPDigits() {
+    const ipAddress = window.location.hostname;
+    const parts = ipAddress.split(".");
     let sum = 0;
-    let i=0;
-    const octets = ipAddress.split('.');
-    while (ipAddress[i] ){
-        if (parseInt(ipAddress[i]) %2==0){
-            sum=sum+parseInt(ipAddress[i]);
+    for (let i = 0; i < parts.length; i++) {
+        const num = parseInt(parts[i]);
+        if (num % 2 === 0) {
+            sum += num;
         }
-        i++;
     }
     document.getElementById("ipValuesAddedDisplay").innerHTML = sum;
+
+    console.log(sum);
 }
 
 function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showLocation);
+        navigator.geolocation.getCurrentPosition(showLocation);
     } else {
-      document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+        document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
     }
-  }
+}
 
-  function showLocation(position) {
+function showLocation(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     document.getElementById("location").innerHTML = "Your current location is: " + latitude + ", " + longitude;
-  }
+}
 
-  getLocation();
+window.addEventListener('scroll', function () {
+    const section = document.getElementById('scrollAllow');
+    const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+
+    if (window.pageYOffset >= sectionPosition) {
+        alert('You have scrolled to the specific section!');
+    }
+});
+
 
 
 

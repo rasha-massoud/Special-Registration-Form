@@ -155,5 +155,12 @@ body {
     justify-content: center;
     justify-items: center;
     text-align: justify;
+}
 
+#scrollAllow{
+    overflow-y: auto;
+    background-image: url("cover.jpg");
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
 }
