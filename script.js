@@ -296,6 +296,17 @@ function flipNumbers() {
     return result;
 }
 
+function reverseAY(){
+    let str = document.forms["registrationForm"]["stringBeforeReverseAY"].value;
+    let strReversed="";
+    for (let i=str.length-1; i>=0 ; i--){
+        strReversed= strReversed+""+str[i];
+    }
+    strReversed= strReversed+""+"ay";
+    console.log(strReversed);   
+    document.getElementById("reverseAYDisplay").innerHTML=strReversed;
+}
+
 
 
 
